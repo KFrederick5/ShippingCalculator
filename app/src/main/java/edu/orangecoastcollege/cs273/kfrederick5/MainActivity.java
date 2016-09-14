@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static NumberFormat currency =NumberFormat.getCurrencyInstance();
 
+
+
     private TextView addCostText;
     private TextView package_ounce;
     private TextView totalCostText;
@@ -30,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
         baseCostText = (TextView) findViewById(R.id.baseCost);
 
         package_ounce.addTextChangedListener(package_ounceChangedListener);
-
-
-        currentBill.setBaseCost(3.00);
     }
 
     private TextWatcher package_ounceChangedListener = new TextWatcher() {
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 package_ounce.setText("");
             }
 
-            package_ounce.setText(currentBill.getOunce());
+            //package_ounce.setText(currentBill.getOunce());
             updateViews();
         }
 
@@ -72,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         totalCostText.setText(currency.format(currentBill.getTotalCost()));
 
-        baseCostText.setText(currency.format(currentBill.getBaseCost()));
+
     }
 
 }

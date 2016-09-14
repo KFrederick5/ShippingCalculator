@@ -4,19 +4,19 @@ package edu.orangecoastcollege.cs273.kfrederick5;
  * Created by kfrederick5 on 9/12/2016.
  */
 public class ShippingCost {
+    private static final double BASE_COST = 3.00;
     private int mOunce;
     private double mTotalCost;
     private double mAddCost;
-    private double mBaseCost;
 
     public ShippingCost() {
+        mTotalCost = BASE_COST;
+        mAddCost = 0.0;
     }
 
-    public ShippingCost(int mOunce, double mTotalCost, double mAddCost, double mBaseCost) {
+    public ShippingCost(int mOunce) {
         this.mOunce = mOunce;
-        this.mTotalCost = mTotalCost;
-        this.mAddCost = mAddCost;
-        this.mBaseCost = mBaseCost;
+        recalcValues();
     }
 
     public int getOunce() {
@@ -27,27 +27,8 @@ public class ShippingCost {
         return mTotalCost;
     }
 
-    public double getBaseCost() {
-        return mBaseCost;
-    }
-
     public void setOunce(int mOunce) {
         this.mOunce = mOunce;
-        recalcValues();
-    }
-
-    public void setTotalCost(double mTotalCost) {
-        this.mTotalCost = mTotalCost;
-        recalcValues();
-    }
-
-    public void setAddCost(double mAddCost) {
-        this.mAddCost = mAddCost;
-        recalcValues();
-    }
-
-    public void setBaseCost(double mBaseCost){
-        this.mBaseCost = mBaseCost;
         recalcValues();
     }
 
@@ -57,7 +38,7 @@ public class ShippingCost {
 
     public void recalcValues()
     {
-        mAddCost = ((mOunce < 16)? 0.0 : (mOunce/4 - 4) * .50);
-        mTotalCost = mAddCost + mBaseCost;
+        mAddCost = ((mOunce < 16)? 0.0 : Math.ceil(mOunce/4.0 - 4) * .50);
+        mTotalCost = mAddCost + BASE_COST;
     }
 }
