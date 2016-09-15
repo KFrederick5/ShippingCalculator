@@ -25,7 +25,6 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
         android:ems="10"
         android:id="@+id/package_ounce"
         android:layout_below="@+id/textView"
@@ -34,7 +33,9 @@
         android:textAlignment="center"
         android:textSize="40sp"
         android:editable="true"
-        android:hint="@string/hint_text" />
+        android:hint="@string/hint_text"
+        android:text="@string/hint_text"
+        android:inputType="number" />
 
     <TextView
         android:layout_width="fill_parent"
